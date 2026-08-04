@@ -34,7 +34,6 @@
             </ul>
 
             <div class="nav-actions">
-                <a href="user/index.html" class="btn btn-outline" id="btnLogin">Masuk</a>
                 <button class="nav-toggle" id="navToggle" aria-label="Toggle navigasi" aria-expanded="false">
                     <i class='bx bx-menu'></i>
                 </button>
@@ -140,92 +139,81 @@
             </div>
         </section>
 
-        <!-- ========== ROOMS / PRODUCT GALLERY ========== -->
+        <!-- ========== ROOMS / PILIHAN KAMAR ========== -->
         <section id="rooms" class="section rooms" aria-labelledby="roomsHeading">
             <div class="container">
                 <header class="section-header">
                     <span class="section-tag">Pilihan Kamar</span>
-                    <h2 id="roomsHeading">Tipe <span class="text-gradient">Kamar</span></h2>
-                    <p>Pilih tipe kamar yang sesuai dengan kebutuhan dan budget Anda.</p>
+                    <h2 id="roomsHeading">Pilih Tipe <span class="text-gradient">Kamar</span></h2>
+                    <p>Kami menyediakan dua pilihan tipe kamar yang bisa disesuaikan dengan kebutuhan dan kenyamanan Anda.</p>
                 </header>
-                <div class="rooms-grid">
-                    <!-- Room Card 1 -->
-                    <article class="room-card" id="roomSingle">
-                        <figure class="room-image">
-                            <img src="assets/images/room-single.png" alt="Kamar Tipe Standard - ruangan nyaman dengan kasur single" loading="lazy" width="400" height="300">
-                            <figcaption class="room-badge">Standard</figcaption>
-                        </figure>
-                        <div class="room-info">
-                            <h3>Kamar Standard</h3>
-                            <ul class="room-features" aria-label="Fitur kamar standard">
-                                <li><i class='bx bx-ruler'></i> 3 x 3 meter</li>
-                                <li><i class='bx bx-wind'></i> Kipas Angin</li>
-                                <li><i class='bx bx-closet'></i> Lemari</li>
-                                <li><i class='bx bx-wifi'></i> WiFi</li>
-                            </ul>
-                            <div class="room-price">
-                                <div>
-                                    <span class="price-label">Mulai dari</span>
-                                    <strong class="price-value">Rp 500.000<span>/bulan</span></strong>
-                                </div>
-                                <a href="https://wa.me/6281234567890?text=Halo, saya tertarik dengan Kamar Standard" class="btn btn-primary btn-sm" id="btnBookStandard" target="_blank" rel="noopener">
-                                    Pesan
-                                </a>
-                            </div>
-                        </div>
-                    </article>
 
-                    <!-- Room Card 2 -->
-                    <article class="room-card" id="roomDeluxe">
-                        <figure class="room-image">
-                            <img src="assets/images/room-double.png" alt="Kamar Tipe Deluxe - ruangan luas dengan kasur double" loading="lazy" width="400" height="300">
-                            <figcaption class="room-badge badge-popular">Populer</figcaption>
-                        </figure>
-                        <div class="room-info">
-                            <h3>Kamar Deluxe</h3>
-                            <ul class="room-features" aria-label="Fitur kamar deluxe">
-                                <li><i class='bx bx-ruler'></i> 3 x 4 meter</li>
-                                <li><i class='bx bx-wind'></i> AC</li>
-                                <li><i class='bx bx-closet'></i> Lemari</li>
-                                <li><i class='bx bx-bath'></i> K. Mandi Dalam</li>
+                <div class="room-comparison">
+                    <!-- Kamar Mandi Luar -->
+                    <a href="rooms/index.html?tipe=km-luar" class="room-type-card" id="roomKmLuar">
+                        <div class="room-type-visual">
+                            <div class="room-type-icon">
+                                <i class='bx bx-door-open'></i>
+                            </div>
+                            <div class="room-type-glow"></div>
+                        </div>
+                        <div class="room-type-content">
+                            <span class="room-type-tag">Terjangkau</span>
+                            <h3>Kamar Mandi Luar</h3>
+                            <p class="room-type-desc">Kamar nyaman dengan akses kamar mandi bersama yang selalu bersih dan terawat.</p>
+                            <ul class="room-type-features">
+                                <li><i class='bx bx-check-circle'></i> Ukuran 3 × 3 meter</li>
+                                <li><i class='bx bx-check-circle'></i> Kasur & Lemari</li>
+                                <li><i class='bx bx-check-circle'></i> WiFi 24 Jam</li>
+                                <li><i class='bx bx-check-circle'></i> Listrik Token</li>
                             </ul>
-                            <div class="room-price">
-                                <div>
-                                    <span class="price-label">Mulai dari</span>
-                                    <strong class="price-value">Rp 800.000<span>/bulan</span></strong>
-                                </div>
-                                <a href="https://wa.me/6281234567890?text=Halo, saya tertarik dengan Kamar Deluxe" class="btn btn-primary btn-sm" id="btnBookDeluxe" target="_blank" rel="noopener">
-                                    Pesan
-                                </a>
+                            <div class="room-type-price">
+                                <span class="price-from">Mulai dari</span>
+                                <strong>Rp 700.000<span>/bulan</span></strong>
+                            </div>
+                            <div class="room-type-cta">
+                                <span>Lihat Kamar Tersedia</span>
+                                <i class='bx bx-right-arrow-alt'></i>
                             </div>
                         </div>
-                    </article>
+                    </a>
 
-                    <!-- Room Card 3 -->
-                    <article class="room-card" id="roomPremium">
-                        <figure class="room-image">
-                            <img src="assets/images/room-deluxe.png" alt="Kamar Tipe Premium - ruangan mewah dengan fasilitas lengkap" loading="lazy" width="400" height="300">
-                            <figcaption class="room-badge badge-premium">Premium</figcaption>
-                        </figure>
-                        <div class="room-info">
-                            <h3>Kamar Premium</h3>
-                            <ul class="room-features" aria-label="Fitur kamar premium">
-                                <li><i class='bx bx-ruler'></i> 4 x 4 meter</li>
-                                <li><i class='bx bx-wind'></i> AC</li>
-                                <li><i class='bx bx-bath'></i> K. Mandi Dalam</li>
-                                <li><i class='bx bx-tv'></i> TV & Meja Kerja</li>
+                    <!-- Divider -->
+                    <div class="room-comparison-divider">
+                        <span>atau</span>
+                    </div>
+
+                    <!-- Kamar Mandi Dalam -->
+                    <a href="rooms/index.html?tipe=km-dalam" class="room-type-card room-type-premium" id="roomKmDalam">
+                        <div class="room-type-badge-float">
+                            <i class='bx bxs-star'></i> Populer
+                        </div>
+                        <div class="room-type-visual">
+                            <div class="room-type-icon">
+                                <i class='bx bx-bath'></i>
+                            </div>
+                            <div class="room-type-glow"></div>
+                        </div>
+                        <div class="room-type-content">
+                            <span class="room-type-tag tag-premium">Premium</span>
+                            <h3>Kamar Mandi Dalam</h3>
+                            <p class="room-type-desc">Privasi lebih dengan kamar mandi dalam yang nyaman. Lebih leluasa dan eksklusif.</p>
+                            <ul class="room-type-features">
+                                <li><i class='bx bx-check-circle'></i> Ukuran 3 × 4 meter</li>
+                                <li><i class='bx bx-check-circle'></i> Kamar Mandi Dalam</li>
+                                <li><i class='bx bx-check-circle'></i> Kasur & Lemari</li>
+                                <li><i class='bx bx-check-circle'></i> WiFi 24 Jam</li>
                             </ul>
-                            <div class="room-price">
-                                <div>
-                                    <span class="price-label">Mulai dari</span>
-                                    <strong class="price-value">Rp 1.200.000<span>/bulan</span></strong>
-                                </div>
-                                <a href="https://wa.me/6281234567890?text=Halo, saya tertarik dengan Kamar Premium" class="btn btn-primary btn-sm" id="btnBookPremium" target="_blank" rel="noopener">
-                                    Pesan
-                                </a>
+                            <div class="room-type-price">
+                                <span class="price-from">Mulai dari</span>
+                                <strong>Rp 950.000<span>/bulan</span></strong>
+                            </div>
+                            <div class="room-type-cta">
+                                <span>Lihat Kamar Tersedia</span>
+                                <i class='bx bx-right-arrow-alt'></i>
                             </div>
                         </div>
-                    </article>
+                    </a>
                 </div>
             </div>
         </section>
@@ -413,7 +401,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.facility-card, .room-card, .contact-item, .section-header').forEach(el => {
+        document.querySelectorAll('.facility-card, .room-type-card, .contact-item, .section-header').forEach(el => {
             el.classList.add('reveal');
             observer.observe(el);
         });
