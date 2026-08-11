@@ -1034,6 +1034,34 @@ address {
 .contact-item.reveal:nth-child(3) { transition-delay: 0.2s; }
 .contact-item.reveal:nth-child(4) { transition-delay: 0.3s; }
 
+/* ===== FLOATING WHATSAPP BUTTON (Mobile Only) ===== */
+.floating-wa {
+    display: none;
+}
+
+/* ===== NAV OVERLAY (Mobile Only) ===== */
+.nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity var(--transition-smooth);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+}
+
+.nav-overlay.show {
+    display: block;
+    opacity: 1;
+}
+
+@keyframes pulse-wa {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
 /* ===== KEYFRAMES ===== */
 @keyframes fadeInUp {
     from {
@@ -1104,18 +1132,23 @@ address {
         box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
         transition: right var(--transition-smooth);
         gap: 4px;
+        z-index: 1000;
     }
 
     .nav-menu.show {
         right: 0;
     }
 
+    /* [MOBILE FIX #1] Touch target navigasi diperbesar — min 48px (Fitts's Law) */
     .nav-menu .nav-link {
         color: var(--dark);
         font-size: 1rem;
-        padding: 12px 16px;
+        padding: 14px 16px;
+        min-height: 48px;
         width: 100%;
         border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
     }
 
     .nav-menu .nav-link:hover,
@@ -1150,6 +1183,19 @@ address {
 
     .stat-item strong {
         font-size: 1.3rem;
+    }
+
+    /* [MOBILE FIX #2] Tombol hero ditumpuk vertikal — Responsive Design */
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 16px 28px;
+        font-size: 1rem;
     }
 
     /* Rooms */
@@ -1191,17 +1237,89 @@ address {
         padding: 36px 24px 32px;
     }
 
-    /* Facilities */
+    /* [MOBILE FIX #3] Facilities grid 2 kolom — Visual Hierarchy & Scannability */
     .facilities-grid {
-        grid-template-columns: 1fr;
-        max-width: 440px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        max-width: 100%;
         margin: 0 auto;
     }
 
-    /* Footer */
+    .facility-card {
+        padding: 24px 16px;
+    }
+
+    .facility-icon {
+        width: 52px;
+        height: 52px;
+        margin-bottom: 14px;
+    }
+
+    .facility-icon i {
+        font-size: 1.5rem;
+    }
+
+    .facility-card h3 {
+        font-size: 0.95rem;
+        margin-bottom: 6px;
+    }
+
+    .facility-card p {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+
+    /* [MOBILE FIX #4] Footer touch targets diperbesar — Accessibility WCAG 2.1 */
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 32px;
+    }
+
+    .footer-nav ul {
+        gap: 4px;
+    }
+
+    .footer-nav a {
+        padding: 10px 0;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    .footer-contact address p {
+        padding: 8px 0;
+        min-height: 44px;
+    }
+
+    .footer-socials a {
+        width: 48px;
+        height: 48px;
+        font-size: 1.3rem;
+    }
+
+    /* [MOBILE FIX #5] Floating WhatsApp — Discoverability */
+    .floating-wa {
+        display: flex;
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        width: 56px;
+        height: 56px;
+        background: #25D366;
+        color: var(--white);
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+        z-index: 998;
+        transition: all var(--transition-base);
+        animation: pulse-wa 2s ease-in-out infinite;
+    }
+
+    .floating-wa:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5);
     }
 }
 
@@ -1215,16 +1333,6 @@ address {
         font-size: 0.95rem;
     }
 
-    .hero-actions {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .hero-actions .btn {
-        width: 100%;
-        justify-content: center;
-    }
-
     .section-header h2 {
         font-size: 1.6rem;
     }
@@ -1232,5 +1340,24 @@ address {
     .room-type-cta {
         width: 100%;
         justify-content: center;
+    }
+
+    /* [MOBILE FIX #7] Hero stats compact — Consistency */
+    .hero-stats {
+        gap: 12px;
+        padding: 16px;
+        border-radius: var(--radius-lg);
+    }
+
+    .stat-divider {
+        height: 28px;
+    }
+
+    .stat-item strong {
+        font-size: 1.1rem;
+    }
+
+    .stat-item span {
+        font-size: 0.7rem;
     }
 }

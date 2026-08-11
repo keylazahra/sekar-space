@@ -41,6 +41,9 @@
         </nav>
     </header>
 
+    <!-- [MOBILE FIX #6] Nav Overlay — tap di luar menu untuk menutup -->
+    <div class="nav-overlay" id="navOverlay"></div>
+
     <main>
         <!-- ========== HERO SECTION ========== -->
         <section id="hero" class="hero" aria-labelledby="heroHeading">
@@ -333,25 +336,49 @@
         </div>
     </footer>
 
+    <!-- [MOBILE FIX #5] Floating WhatsApp Button — selalu terlihat di mobile -->
+    <a href="https://wa.me/6281234567890" class="floating-wa" id="floatingWhatsapp" 
+       target="_blank" rel="noopener" aria-label="Hubungi via WhatsApp">
+        <i class='bx bxl-whatsapp'></i>
+    </a>
+
     <script>
         // ===== NAVBAR TOGGLE (Mobile) =====
         const navToggle = document.getElementById('navToggle');
         const navMenu = document.getElementById('navMenu');
+        const navOverlay = document.getElementById('navOverlay');
+
+        function openMobileNav() {
+            navMenu.classList.add('show');
+            navOverlay.classList.add('show');
+            navToggle.setAttribute('aria-expanded', 'true');
+            navToggle.querySelector('i').className = 'bx bx-x';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileNav() {
+            navMenu.classList.remove('show');
+            navOverlay.classList.remove('show');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.querySelector('i').className = 'bx bx-menu';
+            document.body.style.overflow = '';
+        }
 
         navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
             const isOpen = navMenu.classList.contains('show');
-            navToggle.setAttribute('aria-expanded', isOpen);
-            navToggle.querySelector('i').className = isOpen ? 'bx bx-x' : 'bx bx-menu';
+            if (isOpen) {
+                closeMobileNav();
+            } else {
+                openMobileNav();
+            }
         });
+
+        // [MOBILE FIX #6] Klik overlay untuk menutup menu — Feedback & Closure
+        navOverlay.addEventListener('click', closeMobileNav);
 
         // Close menu on link click
         document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('show');
-                navToggle.setAttribute('aria-expanded', 'false');
-                navToggle.querySelector('i').className = 'bx bx-menu';
-            });
+            link.addEventListener('click', closeMobileNav);
         });
 
         // ===== NAVBAR SCROLL EFFECT =====
