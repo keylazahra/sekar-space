@@ -154,11 +154,12 @@
                 <div class="room-comparison">
                     <!-- Kamar Mandi Luar -->
                     <a href="rooms/index.html?tipe=km-luar" class="room-type-card" id="roomKmLuar">
-                        <div class="room-type-visual">
-                            <div class="room-type-icon">
+                        <div class="room-type-image-wrapper">
+                            <img src="assets/images/room-single.png" alt="Tipe Kamar Mandi Luar Sekar Space" class="room-type-img">
+                            <div class="room-type-img-overlay"></div>
+                            <div class="room-type-icon-badge">
                                 <i class='bx bx-door-open'></i>
                             </div>
-                            <div class="room-type-glow"></div>
                         </div>
                         <div class="room-type-content">
                             <span class="room-type-tag">Terjangkau</span>
@@ -191,11 +192,12 @@
                         <div class="room-type-badge-float">
                             <i class='bx bxs-star'></i> Populer
                         </div>
-                        <div class="room-type-visual">
-                            <div class="room-type-icon">
+                        <div class="room-type-image-wrapper">
+                            <img src="assets/images/room-deluxe.png" alt="Tipe Kamar Mandi Dalam Sekar Space" class="room-type-img">
+                            <div class="room-type-img-overlay"></div>
+                            <div class="room-type-icon-badge">
                                 <i class='bx bx-bath'></i>
                             </div>
-                            <div class="room-type-glow"></div>
                         </div>
                         <div class="room-type-content">
                             <span class="room-type-tag tag-premium">Premium</span>
@@ -269,6 +271,18 @@
                                 </div>
                             </div>
                         </address>
+                        <div class="contact-cta-group">
+                            <a href="https://wa.me/6281234567890?text=Halo%20Sekar%20Space%2C%20saya%20ingin%20bertanya%20tentang%20ketersediaan%20kamar." 
+                               class="contact-cta-btn cta-wa" id="ctaWhatsappContact" target="_blank" rel="noopener">
+                                <i class='bx bxl-whatsapp'></i>
+                                <span>Hubungi via WhatsApp</span>
+                            </a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=-6.2,106.8" 
+                               class="contact-cta-btn cta-maps" id="ctaGoogleMapsContact" target="_blank" rel="noopener">
+                                <i class='bx bxs-map-pin'></i>
+                                <span>Buka Google Maps</span>
+                            </a>
+                        </div>
                     </div>
                     <div class="contact-map" id="contactMap">
                         <iframe
@@ -428,7 +442,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.facility-card, .room-type-card, .contact-item, .section-header').forEach(el => {
+        document.querySelectorAll('.facility-card, .room-type-card, .contact-item, .contact-cta-btn, .section-header').forEach(el => {
             el.classList.add('reveal');
             observer.observe(el);
         });
