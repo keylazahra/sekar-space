@@ -87,46 +87,10 @@
 
             <div class="type-selection-grid">
                 <!-- Kamar Mandi Luar -->
-                <div class="type-card" onclick="selectRoomType('km-luar')">
-                    <div class="type-card-icon">
-                        <i class='bx bx-door-open'></i>
-                    </div>
-                    <h3>Kamar Mandi Luar</h3>
-                    <p class="type-desc">Kamar bersih & ekonomis dengan fasilitas kamar mandi luar terawat bersama.</p>
-                    <ul class="type-features">
-                        <li><i class='bx bx-check'></i> Ukuran 3 x 3 Meter</li>
-                        <li><i class='bx bx-check'></i> Kasur, Bantal & Lemari</li>
-                        <li><i class='bx bx-check'></i> WiFi Cepat 24 Jam</li>
-                        <li><i class='bx bx-check'></i> Dapur & Kulkas Bersama</li>
-                    </ul>
-                    <div class="type-price">
-                        <span class="price-label">Mulai dari</span>
-                        <div class="price-amount">Rp 700.000 <span>/ bulan</span></div>
-                    </div>
-                </div>
+                <div class="type-card" onclick="selectRoomType('km-luar')"></div>
 
                 <!-- Kamar Mandi Dalam -->
-                <div class="type-card" onclick="selectRoomType('km-dalam')">
-                    <div class="type-card-popular">
-                        <i class='bx bxs-star'></i> Populer
-                    </div>
-                    <div class="type-card-icon">
-                        <i class='bx bx-bath'></i>
-                    </div>
-                    <h3>Kamar Mandi Dalam</h3>
-                    <p class="type-desc">Kamar lebih luas dengan kamar mandi pribadi untuk kenyamanan & privasi ekstra.
-                    </p>
-                    <ul class="type-features">
-                        <li><i class='bx bx-check'></i> Ukuran 3 x 4 Meter</li>
-                        <li><i class='bx bx-check'></i> Kamar Mandi Dalam (Shower & Closet)</li>
-                        <li><i class='bx bx-check'></i> Kasur, Bantal, Meja & Lemari</li>
-                        <li><i class='bx bx-check'></i> WiFi Cepat 24 Jam</li>
-                    </ul>
-                    <div class="type-price">
-                        <span class="price-label">Mulai dari</span>
-                        <div class="price-amount">Rp 950.000 <span>/ bulan</span></div>
-                    </div>
-                </div>
+                <div class="type-card" onclick="selectRoomType('km-dalam')"></div>
             </div>
         </section>
 
@@ -179,25 +143,26 @@
                                 <strong id="specSizeText">3 x 4 m</strong>
                             </div>
                         </div>
+
                         <div class="spec-item">
                             <div class="spec-icon"><i class='bx bx-bath'></i></div>
                             <div class="spec-text">
-                                <small>Kamar Mandi</small>
-                                <strong id="specBathText">Dalam Kamar</strong>
+                                <small>Tempat Tidur</small>
+                                <strong id="specBathText">Kasur, Bantal & Guling</strong>
                             </div>
                         </div>
                         <div class="spec-item">
                             <div class="spec-icon"><i class='bx bx-wifi'></i></div>
                             <div class="spec-text">
-                                <small>Fasilitas Utama</small>
-                                <strong>Free High-Speed WiFi</strong>
+                                <small>Lemari</small>
+                                <strong>Lemari Pakaian 2 Pintu</strong>
                             </div>
                         </div>
                         <div class="spec-item">
                             <div class="spec-icon"><i class='bx bx-zap'></i></div>
                             <div class="spec-text">
-                                <small>Listrik</small>
-                                <strong>Token (Meteran Sendiri)</strong>
+                                <small>Fasilitas Lainnya</small>
+                                <strong>Meja, Cermin, Rak Buku dan Jendela</strong>
                             </div>
                         </div>
                     </div>
@@ -241,7 +206,7 @@
             'km-luar': {
                 name: 'Kamar Mandi Luar',
                 size: '3 × 3 meter',
-                bath: 'Luar (Bersama)',
+                bath: 'Kasur, Bantal & Guling',
                 price: 'Rp 700.000',
                 priceVal: '700.000',
                 images: [
@@ -254,22 +219,22 @@
                     {
                         id: 'gedung-a',
                         name: 'Gedung A (Depan)',
-                        desc: 'Dekat dengan pagar utama & area parkir utama',
-                        facilities: ['Parkir Motor Luar', 'CCTV 24 Jam', 'Dapur Bersama Lt.1', 'Jemuran Lt.3'],
+                        desc: 'Memiliki 9 kamar yang terbagi dalam 2 Lantai',
+                        facilities: ['Garasi Motor', 'Wi-Fi & CCTV 24 Jam', 'Dapur Umum Lt.1', 'Jemuran Lt.2', 'Mesin Cuci', 'Kulkas & TV', 'Ruang Tamu', 'Token Listrik Bersama', '3 KM Umum '],
                         availableRooms: ['A-101', 'A-103', 'A-105', 'A-202']
                     },
                     {
                         id: 'gedung-b',
                         name: 'Gedung B (Tengah)',
-                        desc: 'Suasana tenang dekat ruang santai & musholla',
-                        facilities: ['Musholla Bersama', 'Dapur Bersama Lt.1', 'WiFi Masing-Masing Lt.', 'Dispenser Air'],
+                        desc: 'Memiliki 6 kamar yang terbagi dalam 2 Lantai',
+                        facilities: ['Garasi Motor', 'Wi-Fi & CCTV 24 Jam', 'Dapur Umum Lt.2', 'Jemuran Lt.2', 'Kulkas & TV', 'Token Listrik Bersama', '3 KM Umum '],
                         availableRooms: ['B-102', 'B-104', 'B-201', 'B-205']
                     },
                     {
                         id: 'gedung-c',
                         name: 'Gedung C (Belakang)',
-                        desc: 'Asri, tenang, dan dekat dengan area laundry',
-                        facilities: ['Mesin Cuci Bersama', 'Area Jemur Atas', 'Parkir Motor Dalam', 'Kulkas Bersama'],
+                        desc: 'Memiliki 5 kamar yang terbagi dalam 2 Lantai',
+                        facilities: ['Garasi Motor', 'Wi-Fi & CCTV 24 Jam', 'Dapur Umum Tiap Lantai', 'Jemuran Lt.2', 'Kulkas & TV', 'Ruang Tamu', 'Token Listrik Bersama', '2 KM Umum '],
                         availableRooms: [] // Gedung C Penuh (0 Kamar Kosong)
                     }
                 ]
@@ -277,7 +242,7 @@
             'km-dalam': {
                 name: 'Kamar Mandi Dalam',
                 size: '3 × 4 meter',
-                bath: 'Dalam (Pribadi)',
+                bath: 'Kasur, Bantal & Guling',
                 price: 'Rp 950.000',
                 priceVal: '950.000',
                 images: [
@@ -290,9 +255,9 @@
                     {
                         id: 'gedung-a',
                         name: 'Gedung A (Depan)',
-                        desc: 'Akses cepat ke jalan raya, balkon view depan',
-                        facilities: ['Kamar Mandi Dalam', 'Parkir Motor', 'CCTV 24 Jam', 'Balkon Bersama'],
-                        availableRooms: ['A-201', 'A-203', 'A-301']
+                        desc: 'Memiliki 2 kamar yang terbagi dalam 2 Lantai',
+                        facilities: ['Garasi Motor', 'Wi-Fi & CCTV 24 Jam', 'Dapur Umum Lt.1', 'Jemuran Lt.2', 'Mesin Cuci', 'Kulkas & TV', 'Ruang Tamu', 'Token Listrik Bersama', '3 KM Umum '],
+                        availableRooms: ['A-101', 'A-103', 'A-105', 'A-202']
                     },
                     {
                         id: 'gedung-b',
@@ -304,8 +269,8 @@
                     {
                         id: 'gedung-c',
                         name: 'Gedung C (Belakang)',
-                        desc: 'Fasilitas premium dengan pemandangan taman belakang',
-                        facilities: ['Kamar Mandi Dalam', 'Taman Santai', 'Dapur Bersama', 'Area Jemur'],
+                        desc: 'Memiliki 3 kamar yang terbagi dalam 2 Lantai',
+                        facilities: ['Garasi Motor', 'Wi-Fi & CCTV 24 Jam', 'Dapur Umum Tiap Lantai', 'Jemuran Lt.2', 'Kulkas & TV', 'Ruang Tamu', 'Token Listrik Bersama', '2 KM Umum '],
                         availableRooms: [] // Gedung C Penuh (0 Kamar Kosong)
                     }
                 ]
