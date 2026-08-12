@@ -518,127 +518,259 @@ address {
     line-height: 1.6;
 }
 
-/* ===== ROOMS / PRODUCT GALLERY ===== */
+/* ===== ROOMS / ROOM TYPE COMPARISON ===== */
 .rooms {
     background: var(--off-white);
 }
 
-.rooms-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+.room-comparison {
+    display: flex;
+    align-items: stretch;
+    gap: 24px;
+    max-width: 960px;
+    margin: 0 auto;
 }
 
-.room-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    transition: all var(--transition-smooth);
+.room-comparison-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
-.room-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--secondary);
-}
-
-.room-image {
-    position: relative;
-    overflow: hidden;
-    margin: 0;
-}
-
-.room-image img {
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-    transition: transform var(--transition-smooth);
-}
-
-.room-card:hover .room-image img {
-    transform: scale(1.06);
-}
-
-.room-badge {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    padding: 6px 16px;
-    background: var(--primary);
-    color: var(--white);
+.room-comparison-divider span {
+    writing-mode: vertical-lr;
+    text-transform: uppercase;
     font-size: 0.78rem;
     font-weight: 600;
-    border-radius: var(--radius-full);
-    letter-spacing: 0.3px;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    position: relative;
+    padding: 20px 0;
 }
 
-.badge-popular {
+.room-comparison-divider span::before,
+.room-comparison-divider span::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--border), transparent);
+}
+
+.room-comparison-divider span::before {
+    bottom: 100%;
+}
+
+.room-comparison-divider span::after {
+    top: 100%;
+}
+
+.room-type-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 48px 36px 40px;
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-xl);
+    transition: all var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+
+.room-type-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 60%, rgba(220, 195, 170, 0.1));
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.room-type-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--secondary);
+    box-shadow: var(--shadow-xl);
+}
+
+.room-type-card:hover::before {
+    opacity: 1;
+}
+
+.room-type-premium {
+    border-color: var(--secondary);
+    background: linear-gradient(180deg, var(--white) 0%, var(--tertiary-light) 100%);
+}
+
+.room-type-premium:hover {
+    border-color: var(--primary);
+    box-shadow: 0 16px 48px rgba(84, 26, 26, 0.18);
+}
+
+.room-type-badge-float {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 14px;
     background: linear-gradient(135deg, #E8A838, #D4912A);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    z-index: 2;
+    animation: pulse-badge 2s ease-in-out infinite;
 }
 
-.badge-premium {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+@keyframes pulse-badge {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
 
-.room-info {
-    padding: 24px;
+.room-type-visual {
+    position: relative;
+    margin-bottom: 28px;
 }
 
-.room-info h3 {
-    font-size: 1.2rem;
-    margin-bottom: 16px;
+.room-type-icon {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--tertiary), var(--secondary-light));
+    border-radius: 28px;
+    transition: all var(--transition-smooth);
+    position: relative;
+    z-index: 1;
+}
+
+.room-type-icon i {
+    font-size: 2.8rem;
+    color: var(--primary);
+    transition: all var(--transition-base);
+}
+
+.room-type-card:hover .room-type-icon {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    transform: scale(1.08) rotate(-3deg);
+}
+
+.room-type-card:hover .room-type-icon i {
+    color: var(--white);
+}
+
+.room-type-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, rgba(220, 195, 170, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity var(--transition-smooth);
+}
+
+.room-type-card:hover .room-type-glow {
+    opacity: 1;
+}
+
+.room-type-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.room-type-tag {
+    display: inline-block;
+    padding: 4px 14px;
+    background: var(--tertiary);
+    color: var(--primary);
+    font-size: 0.72rem;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.tag-premium {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: var(--white);
+}
+
+.room-type-content h3 {
+    font-size: 1.35rem;
+    margin-bottom: 10px;
     color: var(--dark);
 }
 
-.room-features {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+.room-type-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
     margin-bottom: 20px;
-    padding-bottom: 20px;
+}
+
+.room-type-features {
+    text-align: left;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
     border-bottom: 1px solid var(--border);
 }
 
-.room-features li {
+.room-type-features li {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
-    color: var(--text-muted);
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--text);
+    padding: 6px 0;
 }
 
-.room-features li i {
+.room-type-features li i {
     font-size: 1.1rem;
-    color: var(--primary);
+    color: #16A34A;
+    flex-shrink: 0;
 }
 
-.room-price {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
+.room-type-price {
+    margin-bottom: 24px;
 }
 
-.price-label {
+.room-type-price .price-from {
     display: block;
     font-size: 0.78rem;
     color: var(--text-muted);
     margin-bottom: 2px;
 }
 
-.price-value {
+.room-type-price strong {
     font-family: var(--font-heading);
-    font-size: 1.15rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary);
 }
 
-.price-value span {
-    font-size: 0.8rem;
+.room-type-price strong span {
+    font-size: 0.85rem;
     font-weight: 400;
     color: var(--text-muted);
 }
+
 
 /* ===== FAQ SECTION ===== */
 .faq {
@@ -886,6 +1018,39 @@ address {
     color: var(--dark);
     font-weight: 600;
 }
+=======
+.room-type-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: var(--radius-full);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all var(--transition-base);
+}
+
+.room-type-card:hover .room-type-cta {
+    background: var(--primary-light);
+    gap: 14px;
+    box-shadow: 0 8px 24px rgba(84, 26, 26, 0.25);
+}
+
+.room-type-cta i {
+    font-size: 1.2rem;
+    transition: transform var(--transition-base);
+}
+
+.room-type-card:hover .room-type-cta i {
+    transform: translateX(4px);
+}
+
+/* Room type card reveal delays */
+.room-type-card.reveal:nth-child(1) { transition-delay: 0s; }
+.room-type-card.reveal:nth-child(3) { transition-delay: 0.15s; }
+
 
 /* ===== CONTACT SECTION ===== */
 .contact {
@@ -1112,12 +1277,39 @@ address {
 .facility-card.reveal:nth-child(5) { transition-delay: 0.4s; }
 .facility-card.reveal:nth-child(6) { transition-delay: 0.5s; }
 
-.room-card.reveal:nth-child(2) { transition-delay: 0.15s; }
-.room-card.reveal:nth-child(3) { transition-delay: 0.3s; }
+
 
 .contact-item.reveal:nth-child(2) { transition-delay: 0.1s; }
 .contact-item.reveal:nth-child(3) { transition-delay: 0.2s; }
 .contact-item.reveal:nth-child(4) { transition-delay: 0.3s; }
+
+/* ===== FLOATING WHATSAPP BUTTON (Mobile Only) ===== */
+.floating-wa {
+    display: none;
+}
+
+/* ===== NAV OVERLAY (Mobile Only) ===== */
+.nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity var(--transition-smooth);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+}
+
+.nav-overlay.show {
+    display: block;
+    opacity: 1;
+}
+
+@keyframes pulse-wa {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
 
 /* ===== KEYFRAMES ===== */
 @keyframes fadeInUp {
@@ -1152,8 +1344,8 @@ address {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .rooms-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .room-comparison {
+        gap: 16px;
     }
 
     .contact-grid {
@@ -1189,18 +1381,23 @@ address {
         box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
         transition: right var(--transition-smooth);
         gap: 4px;
+        z-index: 1000;
     }
 
     .nav-menu.show {
         right: 0;
     }
 
+    /* [MOBILE FIX #1] Touch target navigasi diperbesar — min 48px (Fitts's Law) */
     .nav-menu .nav-link {
         color: var(--dark);
         font-size: 1rem;
-        padding: 12px 16px;
+        padding: 14px 16px;
+        min-height: 48px;
         width: 100%;
         border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
     }
 
     .nav-menu .nav-link:hover,
@@ -1237,24 +1434,141 @@ address {
         font-size: 1.3rem;
     }
 
+    /* [MOBILE FIX #2] Tombol hero ditumpuk vertikal — Responsive Design */
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 16px 28px;
+        font-size: 1rem;
+    }
+
     /* Rooms */
-    .rooms-grid {
-        grid-template-columns: 1fr;
+    .room-comparison {
+        flex-direction: column;
         max-width: 440px;
         margin: 0 auto;
     }
 
-    /* Facilities */
+    .room-comparison-divider {
+        padding: 8px 0;
+    }
+
+    .room-comparison-divider span {
+        writing-mode: horizontal-tb;
+        padding: 0 20px;
+    }
+
+    .room-comparison-divider span::before,
+    .room-comparison-divider span::after {
+        top: 50%;
+        transform: translateY(-50%);
+        width: 60px;
+        height: 1px;
+    }
+
+    .room-comparison-divider span::before {
+        right: 100%;
+        left: auto;
+        bottom: auto;
+    }
+
+    .room-comparison-divider span::after {
+        left: 100%;
+        top: 50%;
+    }
+
+    .room-type-card {
+        padding: 36px 24px 32px;
+    }
+
+    /* [MOBILE FIX #3] Facilities grid 2 kolom — Visual Hierarchy & Scannability */
     .facilities-grid {
-        grid-template-columns: 1fr;
-        max-width: 440px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        max-width: 100%;
         margin: 0 auto;
     }
 
-    /* Footer */
+    .facility-card {
+        padding: 24px 16px;
+    }
+
+    .facility-icon {
+        width: 52px;
+        height: 52px;
+        margin-bottom: 14px;
+    }
+
+    .facility-icon i {
+        font-size: 1.5rem;
+    }
+
+    .facility-card h3 {
+        font-size: 0.95rem;
+        margin-bottom: 6px;
+    }
+
+    .facility-card p {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+
+    /* [MOBILE FIX #4] Footer touch targets diperbesar — Accessibility WCAG 2.1 */
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 32px;
+    }
+
+    .footer-nav ul {
+        gap: 4px;
+    }
+
+    .footer-nav a {
+        padding: 10px 0;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    .footer-contact address p {
+        padding: 8px 0;
+        min-height: 44px;
+    }
+
+    .footer-socials a {
+        width: 48px;
+        height: 48px;
+        font-size: 1.3rem;
+    }
+
+    /* [MOBILE FIX #5] Floating WhatsApp — Discoverability */
+    .floating-wa {
+        display: flex;
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        width: 56px;
+        height: 56px;
+        background: #25D366;
+        color: var(--white);
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+        z-index: 998;
+        transition: all var(--transition-base);
+        animation: pulse-wa 2s ease-in-out infinite;
+    }
+
+    .floating-wa:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5);
     }
 }
 
@@ -1268,31 +1582,31 @@ address {
         font-size: 0.95rem;
     }
 
-    .hero-actions {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .hero-actions .btn {
-        width: 100%;
-        justify-content: center;
-    }
-
     .section-header h2 {
         font-size: 1.6rem;
     }
 
-    .room-features {
-        grid-template-columns: 1fr;
-    }
-
-    .room-price {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .room-price .btn {
+    .room-type-cta {
         width: 100%;
         justify-content: center;
+    }
+
+    /* [MOBILE FIX #7] Hero stats compact — Consistency */
+    .hero-stats {
+        gap: 12px;
+        padding: 16px;
+        border-radius: var(--radius-lg);
+    }
+
+    .stat-divider {
+        height: 28px;
+    }
+
+    .stat-item strong {
+        font-size: 1.1rem;
+    }
+
+    .stat-item span {
+        font-size: 0.7rem;
     }
 }
